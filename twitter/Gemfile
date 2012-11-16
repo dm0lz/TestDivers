@@ -1,0 +1,16 @@
+# A sample Gemfile
+source "https://rubygems.org"
+
+gem "pry"
+gem "eventmachine"
+gem "em-http-request"
+gem "json"
+gem 'tweetstream'
+gem 'twitter'
+gem 'term-ansicolor'
+gem 'symbolmatrix'
+gem 'fetcher-microdata-twitter'
+gem 'em-websocket-client'
+
+
+# gem "rails"
