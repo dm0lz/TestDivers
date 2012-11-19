@@ -24,8 +24,8 @@ class String; include Term::ANSIColor ; end
 
 
 EventMachine.run {
-  puts "Connecting to ws://bridge.fetcher:8080/".blue
-  websocket_client = EventMachine::WebSocketClient.connect("ws://bridge.fetcher:8080/")
+  puts "Connecting to localhost:8080/".blue
+  $websocket_client = EventMachine::WebSocketClient.connect("ws://localhost:8080/")
   puts "Connected".dark
 
   TweetStream::Client.new.userstream do |tweet|
@@ -37,7 +37,7 @@ EventMachine.run {
       )
       puts "Sending tweet to Bridge:".intense_blue
       puts tweet.to_hash.to_json.blue
-      websocket_client.send_msg tweet.to_hash.to_json
+      $websocket_client.send_msg tweet.to_hash.to_json
       puts "Sent".dark
       puts
     rescue Exception => e
